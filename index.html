@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sonic The Hedgehog Game Embed</title>
+  <style>
+    /* Ensure the container scales nicely */
+    #game-container {
+      width: 680px;
+      height: 510px;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="game-container">
+    <div id="game"></div>
+  </div>
+
+  <script type="text/javascript">
+    // Prevent default scrolling with arrow up/down when game is focused
+    const game = document.getElementById('game');
+    game.addEventListener("keydown", function(e) { 
+      if(["ArrowUp","ArrowDown"].indexOf(e.code) > -1) { 
+        e.preventDefault(); 
+      } 
+    }, false);
+
+    // Emulator setup variables
+    var EJS_player = '#game';
+    var EJS_gameUrl = 'https://www.allsonicgames.net/roms/sonic-the-hedgehog.bin'; // Url to Game rom
+    var EJS_core = 'segaMD';
+    var EJS_pathtodata = 'https://www.allsonicgames.net/data/';
+    var EJS_biosUrl = '';     // Url to Famicom Disk System bios
+    var EJS_lightgun = false; // NES Lightgun
+    var EJS_mouse = false;    // SNES Mouse
+    var EJS_multitap = false; // SNES Multitap
+  </script>
+
+  <script src="https://www.allsonicgames.net/data/loader.js"></script>
+</body>
+</html>
